@@ -1,168 +1,349 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
-}
-
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.ctas {
-  display: flex;
-  gap: 16px;
-}
-
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
+.hero {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  padding-top: 80px;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
-}
-
-.footer {
-  grid-row-start: 3;
+.heroContent {
+  flex: 1;
+  z-index: 2;
   display: flex;
-  gap: 24px;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.footer a {
+.title {
+  font-size: 72px;
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -2px;
+}
+
+.title span {
+  color: var(--color-primary);
+}
+
+.subtitle {
+  font-size: 20px;
+  color: var(--color-text-muted);
+  margin-bottom: 40px;
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+.ctaButton {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 18px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.heroImageContainer {
+  flex: 1;
+  position: relative;
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0px 0px 80px rgba(255, 77, 0, 0.2);
+}
+
+.heroImageContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    var(--color-background) 0%,
+    rgba(16, 16, 16, 0.5) 50%,
+    rgba(16, 16, 16, 0) 100%
+  );
+  z-index: 1;
+}
+
+.heroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.sectionTitle {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 15px;
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.sectionSubtitle {
+  font-size: 18px;
+  color: var(--color-text-muted);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 50px;
+  line-height: 1.6;
+  font-family: var(--font-main);
+}
+
+.bestsellerSection {
+  padding: 100px 20px;
+}
+
+.bestsellerGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.philosophySection {
+  padding: 100px 20px;
+  background-color: var(--color-background-secondary);
+}
+
+.philosophyGrid {
+  max-width: 1200px;
+  margin: 50px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.philosophyItem {
+  padding: 40px;
+  text-align: center;
+  border-radius: 12px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.philosophyItem:hover {
+  background-color: var(--color-background);
+  transform: translateY(-5px);
+}
+
+.philosophyItem h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.philosophyItem p {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.philosophyIcon {
+  color: var(--color-primary);
+  margin-bottom: 20px;
+}
+
+.videoSection {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+  background-color: var(--color-background);
+}
+
+.videoContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.parallaxVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.videoContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(16, 16, 16, 0.6);
+}
+
+.videoContent {
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.videoContentH2 {
+  font-size: 52px;
+  margin-bottom: 20px;
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.videoContentP {
+  font-size: 20px;
+  line-height: 1.7;
+  font-family: var(--font-main);
+}
+
+.howItWorksSection {
+  padding: 100px 20px;
+}
+
+.howItWorksGrid {
+  max-width: 1200px;
+  margin: 50px auto 0;
+  display: grid;
+  /* 4 колонки на десктопе, 2 на планшете, 1 на телефоне */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.howItWorksItem {
+  text-align: center;
+  padding: 20px;
+}
+
+.howItWorksIconWrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  background-color: var(--color-background-secondary);
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  position: relative;
+  border: 2px solid var(--color-border);
+  color: var(--color-primary);
 }
 
-.footer img {
-  flex-shrink: 0;
+.howItWorksNumber {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: var(--color-primary);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  border: 2px solid var(--color-background);
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
+.howItWorksItem h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
 }
 
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
+.howItWorksItem p {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
 
-  .main {
-    align-items: center;
-  }
+.testimonialsSection {
+  padding: 100px 20px;
+}
 
-  .main ol {
-    text-align: center;
-  }
+.testimonialsGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 50px;
+}
 
-  .ctas {
+.testimonialItem {
+  background-color: var(--color-background-secondary);
+  padding: 30px;
+  border-radius: 12px;
+  border-left: 4px solid var(--color-primary);
+}
+
+.quoteIcon {
+  color: var(--color-primary);
+  font-size: 24px;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.quoteText {
+  font-size: 16px;
+  line-height: 1.7;
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}
+
+.quoteAuthor {
+  font-weight: bold;
+  text-align: right;
+  color: var(--color-text);
+}
+
+@media (max-width: 900px) {
+  .hero {
     flex-direction: column;
+    text-align: center;
+    padding-top: 120px;
+    padding-bottom: 60px;
   }
 
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
+  .title {
+    font-size: 54px;
   }
-
-  a.secondary {
-    min-width: auto;
+  .subtitle {
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
   }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  .bestsellerGrid {
+    grid-template-columns: 1fr;
   }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+  .philosophyGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .sectionTitle {
+    font-size: 36px;
+  }
+  .videoContentH2 {
+    font-size: 38px;
   }
 }

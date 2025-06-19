@@ -1,0 +1,38 @@
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  white-space: nowrap;
+  transform: rotate(-2deg); /* Небольшой наклон для динамики */
+  margin: 80px 0;
+}
+
+.marqueeContent {
+  display: inline-block;
+  animation: marquee 40s linear infinite;
+}
+
+.marqueeContent span {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  padding: 0 20px;
+  text-transform: uppercase;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Сдвигаем на 2 копии текста */
+  }
+}
+
+@media (max-width: 768px) {
+  .marqueeContent span {
+    font-size: 24px;
+  }
+}

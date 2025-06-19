@@ -1,0 +1,119 @@
+.pageContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 150px 20px 50px; /* Большой отступ сверху из-за фиксированной шапки */
+  text-align: center;
+}
+
+.pageTitle {
+  font-size: 56px;
+  margin-bottom: 10px;
+  color: var(--color-primary);
+}
+
+.pageSubtitle {
+  font-size: 18px;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto 60px;
+  line-height: 1.6;
+}
+
+.menuContent {
+  text-align: left; /* Возвращаем выравнивание для контента */
+}
+
+.categorySection {
+  margin-bottom: 80px;
+}
+
+.categoryTitle {
+  font-size: 36px;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--color-primary);
+  display: inline-block; /* Чтобы бордер был по ширине текста */
+}
+
+.productList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.filterContainer {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.filterButton {
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 50px;
+  border: 1px solid var(--color-border);
+  background-color: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filterButton:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.filterButton.active {
+  background-color: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.noResults {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.noResults p {
+  font-size: 18px;
+  max-width: 400px;
+}
+
+.resetFilterButton {
+  margin-top: 10px;
+  padding: 12px 24px;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.resetFilterButton:hover {
+  transform: scale(1.05);
+}
+
+
+.productList > div {
+ 
+}
+
+@media (max-width: 600px) {
+  .productList {
+    grid-template-columns: 1fr; /* Одна колонка на маленьких экранах */
+  }
+  .pageTitle {
+    font-size: 42px;
+  }
+}

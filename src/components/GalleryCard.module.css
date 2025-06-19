@@ -1,0 +1,71 @@
+.card {
+  position: relative;
+  width: 320px;
+  height: 420px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: block; /* Чтобы Link вел себя как блок */
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .imageContainer {
+  transform: scale(1.1); /* Эффект зума картинки при наведении */
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 20%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 25px;
+  opacity: 1; /* Оверлей виден всегда */
+}
+
+.content {
+  width: 100%;
+  color: #fff;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.card:hover .content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 28px;
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-primary);
+}

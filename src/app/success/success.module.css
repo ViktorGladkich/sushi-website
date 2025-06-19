@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.successBox {
+  background-color: var(--color-background-secondary);
+  padding: 50px;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid var(--color-border);
+  max-width: 600px;
+}
+
+.icon {
+  color: var(--color-primary);
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.message {
+  font-size: 18px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.redirect {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.homeButton {
+  padding: 12px 24px;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.homeButton:hover {
+  background-color: #ff7033;
+}

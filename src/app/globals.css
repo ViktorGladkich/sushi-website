@@ -1,33 +1,26 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Цветовая палитра */
+  --color-background: #101010;
+  --color-background-secondary: #1a1a1a;
+  --color-text: #EAEAEA;
+  --color-text-muted: #a0a0a0;
+  --color-primary: #FF4D00;
+  --color-border: #2c2c2c;
+
+  /* Типографика */
+    --font-main: 'Poppins', sans-serif;
+  --font-display: 'Cormorant Garamond', serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: var(--font-main);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  overflow-x: hidden; /* Предотвращает горизонтальный скролл */
 }
 
 a {
@@ -35,8 +28,51 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff7033;
+}
+.mobile-burger-container {
+  display: none;
+  position: fixed;
+  
+  top: 42px; /* 20px padding + половина высоты .rightControls */
+  right: 20px;
+  transform: translateY(-50%); /* Центрируем иконку относительно этой точки */
+  z-index: 2100;
+  transition: opacity 0.3s ease;
+}
+.galleryWrapper {
+  padding: 100px 0; /* Только вертикальные отступы */
+  background-color: var(--color-background-secondary);
+}
+
+@media (max-width: 768px) {
+  .mobile-burger-container {
+    display: block;
   }
 }
+

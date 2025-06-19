@@ -1,0 +1,96 @@
+.galleryWrapper {
+  padding: 100px 0;
+  background-color: var(--color-background-secondary);
+}
+
+.header {
+  max-width: 1200px;
+  margin: 0 auto 50px auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px; /* Добавляем отступ между текстом и индикатором */
+}
+
+.headerText {
+  /* Контейнер для заголовка и подзаголовка */
+  flex-grow: 1; /* Позволяет занимать все доступное место */
+}
+
+.title {
+  font-size: 48px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-align: left;
+  margin: 0; /* Убираем стандартные отступы */
+}
+
+.subtitle {
+  font-size: 18px;
+  color: var(--color-text-muted);
+  margin-top: 10px;
+}
+
+.scrollIndicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-text-muted);
+  font-size: 14px;
+  flex-shrink: 0; /* Запрещаем сжиматься */
+  
+}
+
+.gallerySection {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.galleryTrack {
+  display: flex;
+  gap: 30px;
+  padding: 0 5vw;
+  width: fit-content;
+  max-width: none; /* это ок, т.к. выше уже ограничили контейнер */
+  box-sizing: border-box;
+}
+
+.gallerySection:active {
+  cursor: grabbing;
+}
+
+
+
+.progressBarContainer {
+  max-width: 100%;
+  height: 8px;
+  background-color: var(--color-border);
+  margin: 40px auto 0 auto;
+  border-radius: 2px;
+}
+
+.progressBar {
+  height: 100%;
+  background-color: var(--color-primary);
+  border-radius: 4px;
+  transform-origin: left;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+  .title {
+    font-size: 36px;
+    text-align: center;
+  }
+  .subtitle {
+    text-align: center;
+  }
+  
+}

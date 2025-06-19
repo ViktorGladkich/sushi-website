@@ -1,0 +1,267 @@
+.pageContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 20px 50px;
+}
+
+.title {
+  text-align: center;
+  font-size: 56px;
+  margin-bottom: 40px;
+  color: var(--color-primary);
+}
+
+.checkoutLayout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 50px;
+}
+
+/* --- Стили для формы --- */
+.formSection h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Увеличили отступ для красоты */
+}
+
+.formGroup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.formGroup label {
+  position: absolute;
+  top: 13px;
+  left: 12px;
+  color: var(--color-text-muted);
+  pointer-events: none;
+  transition: all 0.2s ease-out;
+  background-color: var(--color-background-secondary); /* Фон, чтобы перекрывать рамку инпута */
+  padding: 0 4px;
+}
+
+.formGroup input {
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: 15px 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: var(--font-main);
+  transition: border-color 0.2s;
+}
+
+/* Убираем стандартный фон автозаполнения */
+.formGroup input:-webkit-autofill,
+.formGroup input:-webkit-autofill:hover, 
+.formGroup input:-webkit-autofill:focus, 
+.formGroup input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--color-background-secondary) inset !important;
+    -webkit-text-fill-color: var(--color-text) !important;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.formGroup input:focus + label,
+.formGroup input:not(:placeholder-shown) + label {
+  top: -10px; /* Поднимаем label над инпутом */
+  font-size: 12px;
+  color: var(--color-primary);
+}
+
+.formRow {
+  display: flex;
+  gap: 20px;
+}
+
+/* --- Стили для выбора доставки и оплаты --- */
+.paymentTitle {
+  margin-top: 40px;
+}
+
+.deliveryOptions {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.deliveryButton {
+  flex: 1;
+  padding: 12px;
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: var(--font-main);
+  transition: all 0.2s ease;
+}
+
+.deliveryButton.active, .deliveryButton:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: rgba(255, 77, 0, 0.1);
+}
+
+.paymentOptions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.paymentButton {
+  flex: 1;
+  min-width: 120px;
+  padding: 15px;
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-main);
+  transition: all 0.2s ease;
+}
+
+.paymentButton.active, .paymentButton:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: rgba(255, 77, 0, 0.1);
+}
+
+.paymentButton.paymentButtonKlarna {
+  gap: 5px;
+}
+
+.klarnaStripe {
+  font-size: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #6772e5;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 3px;
+  line-height: 1;
+}
+
+
+/* --- Стили для правой колонки --- */
+.summarySection {
+  background-color: var(--color-background-secondary);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  height: fit-content;
+}
+
+.summarySection h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.summaryItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.summaryItem img {
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.summaryItemDetails {
+  flex-grow: 1;
+}
+
+.summaryTotal {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid var(--color-border);
+  font-size: 20px;
+}
+
+.payButton {
+  width: 100%;
+  padding: 15px;
+  margin-top: 30px;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: var(--font-main);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.payButton:hover:not(:disabled) {
+  background-color: #ff7033;
+}
+
+.payButton:disabled {
+  background-color: #444;
+  color: #888;
+  cursor: not-allowed;
+}
+
+/* --- Пустое состояние --- */
+.emptyState {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.emptyState button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* --- Адаптивность --- */
+@media (max-width: 900px) {
+  .checkoutLayout {
+    grid-template-columns: 1fr;
+  }
+  .summarySection {
+    margin-top: 40px;
+    order: -1;
+  }
+  .formRow {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 42px;
+    }
+}

@@ -1,0 +1,130 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  z-index: 1000;
+  background-color: rgba(16, 16, 16, 0.8);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.desktopNav {
+  display: flex;
+  gap: 40px;
+}
+
+.navLink {
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 5px;
+  color: var(--color-text-muted);
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: var(--color-text);
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease-out;
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.rightControls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 28px; 
+}
+
+.cart {
+  position: relative;
+  cursor: pointer;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  height: 100%; /* Заставляем занимать всю высоту родителя */
+}
+
+.cartCount {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.mobileNavPlaceholder {
+  display: none;
+  width: 23px;
+  height: 23px;
+}
+
+@media (max-width: 768px) {
+  .desktopNav {
+    display: none;
+  }
+  .mobileNavPlaceholder {
+    display: block;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    padding: 0 15px;
+  }
+  .logo {
+    font-size: 22px;
+  }
+  .rightControls {
+    gap: 15px;
+  }
+  .cart svg {
+    width: 22px;
+    height: 22px;
+  }
+}
