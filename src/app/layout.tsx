@@ -42,6 +42,7 @@ export default function RootLayout({
   // Единый useEffect для блокировки скролла
   useEffect(() => {
     const body = document.body;
+    // Блокируем скролл, если открыт любой оверлей
     if (isLoading || isCartOpen || isMenuOpen) {
       body.style.overflow = 'hidden';
     } else {
@@ -49,15 +50,16 @@ export default function RootLayout({
     }
   }, [isLoading, isCartOpen, isMenuOpen]);
   
-  // useEffect для прелоадера
+  // useEffect для таймера прелоадера
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2500);
+    // Устанавливаем таймер, который уберет прелоадер
+    const timer = setTimeout(() => setIsLoading(false), 2200); // 2.2 секунды
+    // Очищаем таймер, если компонент размонтируется
     return () => clearTimeout(timer);
   }, []);
 
-  // useEffect для координат корзины
+  // useEffect для получения координат иконки корзины
   useEffect(() => {
-    // Пересчитываем координаты только после того, как прелоадер исчез
     if (!isLoading && cartIconRef.current) {
       const rect = cartIconRef.current.getBoundingClientRect();
       setCartIconCoords({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
@@ -67,7 +69,9 @@ export default function RootLayout({
   return (
     <html lang="de" className={`${poppins.variable} ${cormorantGaramond.variable}`}>
       <body>
-        <AnimatePresence>{isLoading && <Preloader />}</AnimatePresence>
+        <AnimatePresence mode="wait">
+          {isLoading && <Preloader />}
+        </AnimatePresence>
 
         {!isLoading && (
           <>
@@ -85,7 +89,6 @@ export default function RootLayout({
             
             <div 
               className="mobile-burger-container"
-              // Скрываем иконку, если открыта корзина, чтобы не было наложения
               style={{ 
                 opacity: isCartOpen ? 0 : 1, 
                 pointerEvents: isCartOpen ? 'none' : 'auto',

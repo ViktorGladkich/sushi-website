@@ -9,19 +9,9 @@
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  pointer-events: none; /* Чтобы не мешал кликать после того, как станет прозрачным */
 }
 
-.textContainer {
-  font-family: var(--font-display);
-  font-size: 6vw; /* Размер шрифта зависит от ширины экрана */
-  color: var(--color-text);
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-@media (max-width: 768px) {
-  .textContainer {
-    font-size: 10vw;
-  }
+.lottieContainer {
+  width: 100%;
+  max-width: 300px; /* Ограничиваем максимальный размер анимации */
 }
